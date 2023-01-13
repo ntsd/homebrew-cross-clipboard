@@ -5,21 +5,39 @@
 class CrossClipboard < Formula
   desc "A multi device clipboard sharing over P2P network."
   homepage "https://github.com/ntsd/cross-clipboard"
-  version "0.1.1"
-  depends_on :macos
+  version "0.1.2"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.1/cross-clipboard_0.1.1_Darwin_arm64.tar.gz"
-      sha256 "ab41241f679525091f93ec16ad18affc721a48a8f952258efd678164148e558e"
+    if Hardware::CPU.intel?
+      url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.2/cross-clipboard_0.1.2_Darwin_amd64.tar.gz"
+      sha256 "888770af000c0a9d9d69c987d233e6bb608c9bc484db9e454f507da3b332e97f"
 
       def install
         bin.install "cross-clipboard"
       end
     end
+    if Hardware::CPU.arm?
+      url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.2/cross-clipboard_0.1.2_Darwin_arm64.tar.gz"
+      sha256 "ef23ac5e831344cdde76ab41bad1efeb200051c10c8b4ef9314051df3f539b21"
+
+      def install
+        bin.install "cross-clipboard"
+      end
+    end
+  end
+
+  on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.1/cross-clipboard_0.1.1_Darwin_amd64.tar.gz"
-      sha256 "6df87ad05fe52ab3381ac72eed54b138bc6c438b9ab885db04336c723b4838de"
+      url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.2/cross-clipboard_0.1.2_Linux_amd64.tar.gz"
+      sha256 "b3fcd99410fd0b8cf94295b5137e831feee1a4e3586e372b377729b934e1a1c5"
+
+      def install
+        bin.install "cross-clipboard"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.2/cross-clipboard_0.1.2_Linux_arm64.tar.gz"
+      sha256 "aa7c67ea9a37e59b47b24148bdbdf7a5891408f888ec62ec792ff6e6fe73889b"
 
       def install
         bin.install "cross-clipboard"
