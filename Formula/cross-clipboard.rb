@@ -5,47 +5,23 @@
 class CrossClipboard < Formula
   desc "A multi device clipboard sharing over P2P network."
   homepage "https://github.com/ntsd/cross-clipboard"
-  version "0.1.4"
+  version "0.1.5"
+  depends_on :macos
 
-  on_macos do
-    on_intel do
-      url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.4/cross-clipboard_0.1.4_darwin_amd64.tar.gz"
-      sha256 "1921da3edcf8e8cba4ea8189affa1c51eb8f6ff3b1401aecf266982184b236e9"
+  on_intel do
+    url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.5/cross-clipboard_0.1.5_darwin_amd64.tar.gz"
+    sha256 "bf8a8c6fe1c709d4407a7ff5938d2363ae509597d52eff37fc466d83ca070c79"
 
-      def install
-        bin.install "cross-clipboard"
-      end
-    end
-    on_arm do
-      url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.4/cross-clipboard_0.1.4_darwin_arm64.tar.gz"
-      sha256 "f9234e7d98b7d0e48fa7f62499c1d492d21024de77cedbefe468b1cc2232bc72"
-
-      def install
-        bin.install "cross-clipboard"
-      end
+    def install
+      bin.install "cross-clipboard"
     end
   end
+  on_arm do
+    url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.5/cross-clipboard_0.1.5_darwin_arm64.tar.gz"
+    sha256 "9cc21ab19f373d1d2b858ad56ab6f59d1a5a0a06367efb838b395fc117de707c"
 
-  on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.4/cross-clipboard_0.1.4_linux_amd64.tar.gz"
-        sha256 "ec8c6f8ac52aa2b6619498a184564e1ff2a6a9280e63e7748af17ad38691da5c"
-
-        def install
-          bin.install "cross-clipboard"
-        end
-      end
-    end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/ntsd/cross-clipboard/releases/download/v0.1.4/cross-clipboard_0.1.4_linux_arm64.tar.gz"
-        sha256 "57e95627ed97f89525a1172a506e4c0db38d4c96739f8cdc2245ec0b15ffa03e"
-
-        def install
-          bin.install "cross-clipboard"
-        end
-      end
+    def install
+      bin.install "cross-clipboard"
     end
   end
 end
